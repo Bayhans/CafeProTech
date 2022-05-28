@@ -7,10 +7,11 @@
         xmlns:view="clr-namespace:Restaurant_Demonstration.View"
         xmlns:viewModel="clr-namespace:Restaurant_Demonstration.ViewModel"
         mc:Ignorable="d"
-              Title="Restaurant_Demonstration" 
-        d:DesignWidth="700" d:DesignHeight="600"  Height="500" Width="800" FontSize="20">
+        Title="Restaurant_Demonstration" 
+        d:DesignWidth="700" d:DesignHeight="600"
+        Height="500" Width="800" FontSize="20"
+        WindowStartupLocation="CenterScreen">
     <Window.Resources>
-
         <DataTemplate DataType="{x:Type viewModel:ManagerViewModel}">
             <view:ManagerView/>
         </DataTemplate>
@@ -25,23 +26,19 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-
         <controls:HeaderControl />
-
-        <Menu Grid.Row="1" FontSize="20">
+        <Menu Grid.Row="1" FontSize="20" >
             <MenuItem Header="_Manager"
                           Command="{Binding SelectViewModelCommand}"
                           CommandParameter="{Binding ManagerViewModel}"/>
+            <Separator />
             <MenuItem Header="_Customer"
                           Command="{Binding SelectViewModelCommand}"
                           CommandParameter="{Binding UsersViewModel}"/>
         </Menu>
-
-
         <ContentControl Grid.Row="2" Content="{Binding SelectedViewModel}"/>
-
         <StatusBar Grid.Row="3">
-            <StatusBarItem FontSize="20" Content="Restaurant_Demonstration"/>
+            <StatusBarItem FontSize="20" Content="Restaurant_Demonstration" Background="{StaticResource HeaderBackgroundBrush}"/>
         </StatusBar>
     </Grid>
 </Window>
