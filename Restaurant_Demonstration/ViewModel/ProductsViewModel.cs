@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Restaurant_Demonstration.ViewModel
 {
-    public class UsersViewModel : ViewModelBase
+    public class ProductsViewModel : ViewModelBase
     {
         private readonly IProductsDataProvider _productsDataProvider;
 
-        public UsersViewModel(IProductsDataProvider productsDataProvider)
+        public ProductsViewModel(IProductsDataProvider productsDataProvider)
         {
             _productsDataProvider = productsDataProvider;
         }

@@ -15,7 +15,7 @@
         <DataTemplate DataType="{x:Type viewModel:ManagerViewModel}">
             <view:ManagerView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:UsersViewModel}">
+        <DataTemplate DataType="{x:Type viewModel:ProductsViewModel}">
             <view:UserView/>
         </DataTemplate>
     </Window.Resources>
@@ -27,14 +27,14 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <controls:HeaderControl />
-        <Menu Grid.Row="1" FontSize="20" >
+        <Menu Grid.Row="1" FontSize="15" >
             <MenuItem Header="_Manager"
                           Command="{Binding SelectViewModelCommand}"
                           CommandParameter="{Binding ManagerViewModel}"/>
             <Separator />
             <MenuItem Header="_Customer"
                           Command="{Binding SelectViewModelCommand}"
-                          CommandParameter="{Binding UsersViewModel}"/>
+                          CommandParameter="{Binding ProductsViewModel}"/><!--just products for now-->
         </Menu>
         <ContentControl Grid.Row="2" Content="{Binding SelectedViewModel}"/>
         <StatusBar Grid.Row="3">

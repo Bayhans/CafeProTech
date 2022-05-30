@@ -19,7 +19,7 @@ namespace Restaurant_Demonstration.Data
       {
         new Customer{Id=1,FirstName="Julia",LastName="Developer",Ordered=true},
         new Customer{Id=2,FirstName="Alex",LastName="Rider"},
-        new Customer{Id=3, FirstName="Thomas Claudius",LastName="Huber",Ordered=true},
+        new Customer{Id=3, FirstName="Thomas",LastName="Huber",Ordered=true},
         new Customer{Id=4,FirstName="Anna",LastName="Rockstar"},
         new Customer{Id=5,FirstName="Sara",LastName="Metroid"},
         new Customer{Id=6,FirstName="Ben",LastName="Ronaldo"}

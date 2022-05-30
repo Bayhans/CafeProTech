@@ -1,8 +1,4 @@
 ﻿using Restaurant_Demonstration.Command;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Restaurant_Demonstration.ViewModel
@@ -11,12 +7,11 @@ namespace Restaurant_Demonstration.ViewModel
     {
 
         private ViewModelBase? _selectedViewModel;
-
         public MainViewModel(ManagerViewModel managerViewModel,
-            UsersViewModel usersViewModel)
+            ProductsViewModel productsViewModel)
         {
             ManagerViewModel = managerViewModel;
-            UsersViewModel = usersViewModel;
+            ProductsViewModel = productsViewModel;
             SelectedViewModel = ManagerViewModel;
             SelectViewModelCommand = new DelegateCommand(SelectViewModel);
         }
@@ -30,9 +25,8 @@ namespace Restaurant_Demonstration.ViewModel
             }
         }
         public ManagerViewModel ManagerViewModel { get; }
-        public UsersViewModel UsersViewModel { get; }
+        public ProductsViewModel ProductsViewModel { get; }
         public DelegateCommand SelectViewModelCommand { get; }
-
         public override async Task LoadAsync()
         {
             if (SelectedViewModel is not null)
@@ -45,6 +39,5 @@ namespace Restaurant_Demonstration.ViewModel
             SelectedViewModel = parameter as ViewModelBase;
             await LoadAsync();
         }
-
     }
 }

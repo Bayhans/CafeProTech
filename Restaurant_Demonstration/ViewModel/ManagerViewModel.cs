@@ -1,9 +1,13 @@
 ﻿using Restaurant_Demonstration.Command;
 using Restaurant_Demonstration.Data;
 using Restaurant_Demonstration.Model;
+using System;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Data;
 
 namespace Restaurant_Demonstration.ViewModel
 {
@@ -42,6 +46,7 @@ namespace Restaurant_Demonstration.ViewModel
                 RaisePropertyChanged();
             }
         }
+
         public DelegateCommand AddCommand { get; }
         public DelegateCommand MoveNavigationCommand { get; }
         public DelegateCommand DeleteCommand { get; }
