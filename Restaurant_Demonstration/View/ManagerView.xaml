@@ -7,7 +7,7 @@
              xmlns:converter="clr-namespace:Restaurant_Demonstration.Converter"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="{StaticResource BackgroundBrush}">
-    
+
     <UserControl.Resources>
         <converter:NavigationSideToGridColumnConverter 
             x:Key="NavigationSideToGridColumnConv" />
@@ -18,7 +18,7 @@
                 <TextBlock Text="{Binding LastName}" Margin="5 0 0 0" 
                            d:DataContext="{d:DesignData Customer}" />
             </StackPanel>
-        </DataTemplate>
+            </DataTemplate>
     </UserControl.Resources>
     <Grid >
         <Grid.ColumnDefinitions>
@@ -48,7 +48,7 @@
                 <Button Margin="0 10 10 10" Command="{Binding MoveNavigationCommand}">
                     <Image Source="C:\Users\Wafaa\source\repos\Resturant-Demo\Resturant-Demo\Images\move.png" Height="15"/>
                 </Button>
-            </StackPanel> 
+            </StackPanel>
             <ListView ItemsSource="{Binding Customers}"
                 SelectedItem="{Binding SelectedCustomer,Mode=TwoWay}"
                       ItemTemplate="{StaticResource CustomerDataTemplate}"
@@ -56,8 +56,8 @@
                       Margin="10 0 10 10"  Height="300"
                       Background="{StaticResource BackgroundBrush}"/>
         </Grid>
-        
-            <!-- Customer details -->
+
+        <!-- Customer details -->
         <StackPanel Grid.Column="1" Margin="10"
                     Visibility="{Binding IsCustomerSelected,
                                 Converter={StaticResource BooleanToVisibilityConv}}">
@@ -77,39 +77,11 @@
                 Ordered
             </CheckBox>
         </StackPanel>
-        <!-- Sections details -->
+         <!--Sections details -->
         <Grid Grid.Column="1" Visibility="{Binding IsCustomerSelected,
                                 Converter={StaticResource SectionsViewConv}, 
                                 ConverterParameter=Inverted}">
-            <Button Name="btn1" Content="levels"  Background="LightBlue" 
-                    Margin="10" Width="50" Height="50" FontSize="15"
-                    BorderBrush="Transparent">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="50"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-
-            <Button Name="btn2" Content="Sections" Background="LightBlue"
-                    Margin="10" Width="50" Height="50" FontSize="15"
-                    BorderBrush="Transparent">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="50"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-
-            <Button Name="btn3" Content="Tables" Background="LightBlue"
-                    Margin="10" Width="50" Height="50" FontSize="15"
-                    BorderBrush="Transparent">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="50"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
+            <local:SectionsTablesView/>
         </Grid>
     </Grid>
 

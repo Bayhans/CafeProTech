@@ -30,7 +30,6 @@ namespace Restaurant_Demonstration.ViewModel
                 }
             }
         }
-
         public string? LastName
         {
             get => _model.LastName;

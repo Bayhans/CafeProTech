@@ -6,5 +6,6 @@
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public bool Ordered { get; set; }
+        public double ReservationDate { get; set; }
     }
 }

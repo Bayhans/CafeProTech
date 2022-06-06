@@ -21,9 +21,11 @@ namespace Restaurant_Demonstration
         {
             services.AddTransient<MainWindow>();
             services.AddTransient<MainViewModel>();
+            services.AddTransient<LayoutViewModel>();
             services.AddTransient<ManagerViewModel>();
             services.AddTransient<ProductsViewModel>();
 
+            services.AddTransient<ILayoutDataProvider.LayoutDataProvider>();
             services.AddTransient<ICustomersDataProvider, CustomersDataProvider>();
             services.AddTransient<IProductsDataProvider, ProductsDataProvider>();
 

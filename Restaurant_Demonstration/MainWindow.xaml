@@ -32,13 +32,10 @@
                           Command="{Binding SelectViewModelCommand}"
                           CommandParameter="{Binding ManagerViewModel}"/>
             <Separator />
-            <MenuItem Header="_Customer"
+            <MenuItem Header="_User"
                           Command="{Binding SelectViewModelCommand}"
                           CommandParameter="{Binding ProductsViewModel}"/><!--just products for now-->
         </Menu>
         <ContentControl Grid.Row="2" Content="{Binding SelectedViewModel}"/>
-        <StatusBar Grid.Row="3">
-            <StatusBarItem FontSize="20" Content="Restaurant_Demonstration" Background="{StaticResource HeaderBackgroundBrush}"/>
-        </StatusBar>
     </Grid>
 </Window>
