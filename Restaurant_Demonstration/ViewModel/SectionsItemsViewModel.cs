@@ -2,25 +2,25 @@
 
 namespace Restaurant_Demonstration.ViewModel
 {
-    public class LayoutItemsViewModel: ValidationViewModelBase
+    public class SectionsItemsViewModel: ValidationViewModelBase
     {
-        private readonly Layout _layoutmodel;
+        private readonly Section _layoutModel;
 
-        public LayoutItemsViewModel(Layout layoutmodel)
+        public SectionsItemsViewModel(Section layoutmodel)
         {
-            _layoutmodel = layoutmodel;
+            _layoutModel = layoutmodel;
         }
 
-        public int LayoutId => _layoutmodel.LayoutId;
+        public int SectionsId => _layoutModel.SectionId;
 
         public string? LayoutName
         {
-            get => _layoutmodel.LayoutName;
+            get => _layoutModel.SectionName;
             set
             {
-                _layoutmodel.LayoutName = value;
+                _layoutModel.SectionName = value;
                 RaisePropertyChanged();
-                if (string.IsNullOrEmpty(_layoutmodel.LayoutName))
+                if (string.IsNullOrEmpty(_layoutModel.SectionName))
                 {
                     AddError("layout name is required");
                 }
@@ -32,10 +32,10 @@ namespace Restaurant_Demonstration.ViewModel
         }
         public bool Avaliblity
         {
-            get => _layoutmodel.Avaliblity;
+            get => _layoutModel.Avaliblity;
             set
             {
-                _layoutmodel.Avaliblity = value;
+                _layoutModel.Avaliblity = value;
                 RaisePropertyChanged();
             }
         }

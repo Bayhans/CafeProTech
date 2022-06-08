@@ -9,19 +9,19 @@ namespace Restaurant_Demonstration.Data
 {
     public interface ILayoutDataProvider 
     {
-        Task<IEnumerable<Layout>?> GetAllAsync();
+        Task<IEnumerable<Section>?> GetAllAsync();
        
         public class LayoutDataProvider : ILayoutDataProvider
         {
-            public async Task<IEnumerable<Layout>?> GetAllAsync()
+            public async Task<IEnumerable<Section>?> GetAllAsync()
             {
                 await Task.Delay(100); // Simulate a bit of server work
 
-                return new List<Layout>
+                return new List<Section>
                 {
-                    new Layout{LayoutId=1,LayoutName = "First layout",Sections=2, Tables = 5, AvalibleTables = 4, Reservations = 1},
-                    new Layout{LayoutId=2,LayoutName = "Second layout",Sections=3, Tables = 10, AvalibleTables = 4, Reservations = 6},
-                    new Layout{LayoutId=3,LayoutName = "Third layout",Sections=2, Tables = 5, AvalibleTables = 2, Reservations = 3},
+                    new Section{SectionId=1,SectionName = "Section 1", SectionTables = 5, SectionAvalibleTables = 4, SectionReservations = 1},
+                    new Section{SectionId=2,SectionName = "Section 2", SectionTables = 10, SectionAvalibleTables = 4, SectionReservations = 6},
+                    new Section{SectionId=3,SectionName = "Section 3", SectionTables = 5, SectionAvalibleTables = 2, SectionReservations = 3},
                 };
             }
         }

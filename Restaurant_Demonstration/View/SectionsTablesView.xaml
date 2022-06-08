@@ -6,12 +6,28 @@
              xmlns:local="clr-namespace:Restaurant_Demonstration.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <DataTemplate x:Key="LayoutDataTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding LayoutName, ValidatesOnNotifyDataErrors=False}"
+                            FontWeight="Bold" d:DataContext="{d:DesignData LayoutItemsViewModel}"/>
+                <TextBlock Text="{Binding Tables, ValidatesOnNotifyDataErrors=False}"
+                            FontWeight="Bold" d:DataContext="{d:DesignData LayoutItemsViewModel}"/>
+                <TextBlock Text="{Binding AvalibleTables, ValidatesOnNotifyDataErrors=False}"
+                            FontWeight="Bold" d:DataContext="{d:DesignData LayoutItemsViewModel}"/>
+                <TextBlock Text="{Binding Reservations, ValidatesOnNotifyDataErrors=False}"
+                            FontWeight="Bold" d:DataContext="{d:DesignData LayoutItemsViewModel}"/>
+
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <!-- Sections details -->
         <Grid Grid.Column="0" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -19,7 +35,7 @@
             </Grid.RowDefinitions>
             <Button Grid.Row="0" Name="Sec0" Background="White" 
                     Margin="10" Width="60" Height="60" FontSize="15"
-                    BorderBrush="Black" BorderThickness="1">
+                    BorderThickness="1">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="50"/>
@@ -35,9 +51,9 @@
 
             <Button Grid.Row="1" Name="Tab1" Background="White" 
                     Margin="10" Width="60" Height="60" FontSize="15"
-                    BorderBrush="Black" BorderThickness="1">
+                    BorderThickness="1">
                 <Button.Resources>
-                    <Style TargetType="Border">
+                    <Style TargetType="Border">                   <!-- It needs a seperate view for every section with its table-->
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
@@ -67,7 +83,7 @@
         <Grid Grid.Column="1">
             <Button Name="Sec1" Background="White" 
                      Width="60" Height="60" FontSize="15"
-                    BorderBrush="Black" BorderThickness="1">
+                     BorderThickness="1">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="50"/>
@@ -84,7 +100,7 @@
         <Grid Grid.Column="2">
             <Button Name="Sec2" Background="White" 
                      Width="60" Height="60" FontSize="15"
-                    BorderBrush="Black" BorderThickness="1">
+                     BorderThickness="1">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="50"/>

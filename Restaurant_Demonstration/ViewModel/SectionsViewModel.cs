@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Restaurant_Demonstration.Command;
 using Restaurant_Demonstration.Data;
@@ -10,20 +7,20 @@ using Restaurant_Demonstration.Model;
 
 namespace Restaurant_Demonstration.ViewModel
 {
-    public class LayoutViewModel : ViewModelBase
+    public class SectionsViewModel : ViewModelBase
     {
         
             private readonly ILayoutDataProvider _LayoutDataProvider;
-            private LayoutItemsViewModel? _selectedLayout;
+            private SectionsItemsViewModel? _selectedLayout;
 
-            public LayoutViewModel(ILayoutDataProvider layoutDataProvider)
+            public SectionsViewModel(ILayoutDataProvider layoutDataProvider)
             {
                 _LayoutDataProvider = layoutDataProvider;
-                LayoutAddCommand = new DelegateCommand(Add);
-                LayoutDeleteCommand = new DelegateCommand(Delete, CanDelete);
+                LayoutAddCommand = new DelegateCommand(AddLayout);
+                LayoutDeleteCommand = new DelegateCommand(DeleteLayout, CanDeleteLayout);
             }
-        public ObservableCollection<LayoutItemsViewModel> Layouts { get; } = new();
-        public LayoutItemsViewModel? SelectedLayout
+        public ObservableCollection<SectionsItemsViewModel> Layouts { get; } = new();
+        public SectionsItemsViewModel? SelectedLayout
             {
                 get => _selectedLayout;
                 set
@@ -50,24 +47,24 @@ namespace Restaurant_Demonstration.ViewModel
                 {
                     foreach (var layout in layouts)
                     {
-                        Layouts.Add(new LayoutItemsViewModel(layout));
+                        Layouts.Add(new SectionsItemsViewModel(layout));
                     }
                 }
             }
-            private void Add(object? parameter)
+            private void AddLayout(object? parameter)
             {
-                var layout = new Layout { LayoutName = "New layout" };
-                var layoutviewModel = new LayoutItemsViewModel(layout);
+                var layout = new Section { SectionName = "New layout" };
+                var layoutviewModel = new SectionsItemsViewModel(layout);
                 Layouts.Add(layoutviewModel);
                 SelectedLayout = layoutviewModel;
             }
-            private void Delete(object? parameter)
+            private void DeleteLayout(object? parameter)
             {
                 if (SelectedLayout is null) return;
                 Layouts.Remove(SelectedLayout);
                 SelectedLayout = null;
             }
-            private bool CanDelete(object? parameter) => SelectedLayout is not null;
+            private bool CanDeleteLayout(object? parameter) => SelectedLayout is not null;
         
     }
 }

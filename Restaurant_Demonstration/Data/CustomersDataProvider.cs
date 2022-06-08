@@ -17,12 +17,12 @@ namespace Restaurant_Demonstration.Data
 
             return new List<Customer>
           {
-            new Customer{Id=1,FirstName="Julia",LastName="Developer",ReservationDate = 01.20, Ordered=true},
-            new Customer{Id=2,FirstName="Alex",LastName="Rider"},
-            new Customer{Id=3, FirstName="Thomas",LastName="Huber",ReservationDate = 03.30,Ordered=true},
-            new Customer{Id=4,FirstName="Anna",LastName="Rockstar"},
-            new Customer{Id=5,FirstName="Sara",LastName="Metroid"},
-            new Customer{Id=6,FirstName="Ben",LastName="Ronaldo"}
+            new Customer{CustomerId=1,FirstName="Julia",LastName="Developer",ReservationDate = 01.20, Ordered=true},
+            new Customer{CustomerId=2,FirstName="Alex",LastName="Rider"},
+            new Customer{CustomerId=3, FirstName="Thomas",LastName="Huber",ReservationDate = 03.30,Ordered=true},
+            new Customer{CustomerId=4,FirstName="Anna",LastName="Rockstar"},
+            new Customer{CustomerId=5,FirstName="Sara",LastName="Metroid"},
+            new Customer{CustomerId=6,FirstName="Ben",LastName="Ronaldo"}
           };
         }
     }

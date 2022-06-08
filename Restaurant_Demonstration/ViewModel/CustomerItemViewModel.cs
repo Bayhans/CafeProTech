@@ -4,23 +4,23 @@ namespace Restaurant_Demonstration.ViewModel
 {
     public class CustomerItemViewModel : ValidationViewModelBase
     {
-        private readonly Customer _model;
+        private readonly Customer _customerModel;
 
         public CustomerItemViewModel(Customer model)
         {
-            _model = model;
+            _customerModel = model;
         }
 
-        public int Id => _model.Id;
+        public int Id => _customerModel.CustomerId;
 
         public string? FirstName
         {
-            get => _model.FirstName;
+            get => _customerModel.FirstName;
             set
             {
-                _model.FirstName = value;
+                _customerModel.FirstName = value;
                 RaisePropertyChanged();
-                if (string.IsNullOrEmpty(_model.FirstName))
+                if (string.IsNullOrEmpty(_customerModel.FirstName))
                 {
                     AddError("Firstname is required");
                 }
@@ -32,19 +32,19 @@ namespace Restaurant_Demonstration.ViewModel
         }
         public string? LastName
         {
-            get => _model.LastName;
+            get => _customerModel.LastName;
             set
             {
-                _model.LastName = value;
+                _customerModel.LastName = value;
                 RaisePropertyChanged();
             }
         }
         public bool Ordered
         {
-            get => _model.Ordered;
+            get => _customerModel.Ordered;
             set
             {
-                _model.Ordered = value;
+                _customerModel.Ordered = value;
                 RaisePropertyChanged();
             }
         }
