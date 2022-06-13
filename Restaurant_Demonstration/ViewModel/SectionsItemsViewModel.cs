@@ -11,7 +11,7 @@ namespace Restaurant_Demonstration.ViewModel
             _layoutModel = layoutmodel;
         }
 
-        public int SectionsId => _layoutModel.SectionId;
+        public int Id => _layoutModel.SectionId;
 
         public string? LayoutName
         {

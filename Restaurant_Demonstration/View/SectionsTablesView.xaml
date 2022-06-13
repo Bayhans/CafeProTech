@@ -3,67 +3,69 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Restaurant_Demonstration.View"
+             xmlns:local="clr-namespace:Restaurant_Demonstration.View" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.Resources>
-        <DataTemplate x:Key="LayoutDataTemplate">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding LayoutName, ValidatesOnNotifyDataErrors=False}"
-                            FontWeight="Bold" d:DataContext="{d:DesignData LayoutItemsViewModel}"/>
-                <TextBlock Text="{Binding Tables, ValidatesOnNotifyDataErrors=False}"
-                            FontWeight="Bold" d:DataContext="{d:DesignData LayoutItemsViewModel}"/>
-                <TextBlock Text="{Binding AvalibleTables, ValidatesOnNotifyDataErrors=False}"
-                            FontWeight="Bold" d:DataContext="{d:DesignData LayoutItemsViewModel}"/>
-                <TextBlock Text="{Binding Reservations, ValidatesOnNotifyDataErrors=False}"
-                            FontWeight="Bold" d:DataContext="{d:DesignData LayoutItemsViewModel}"/>
-
-            </StackPanel>
-        </DataTemplate>
-    </UserControl.Resources>
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <!-- Sections details -->
         <Grid Grid.Column="0" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Grid.Row="0" Name="Sec0" Background="White" 
-                    Margin="10" Width="60" Height="60" FontSize="15"
+            
+                <StackPanel Orientation="Vertical">
+                    <Button Grid.Row="0"
+                        Name="Sec0"
+                        Background="White"  
+                        Margin="10"
+                        Width="60" Height="60"
+                        FontSize="15"
+                        BorderThickness="1">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="50"/>
+                            </Style>
+                        </Button.Resources>
+                        <Viewbox Width="50" Height="50">
+                            <Grid Width="80" Height="80">
+                                <Ellipse  Fill="LightCyan"/>
+                                <TextBlock HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"
+                                       Text="{Binding }"/>
+                            </Grid>
+                        </Viewbox>
+                    </Button>
+                </StackPanel>
+            
+
+            <Button Grid.Row="1"
+                    Name="Tab1"
+                    Background="White" 
+                    Margin="10" 
+                    Width="60" Height="60" 
+                    FontSize="15"
                     BorderThickness="1">
                 <Button.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="50"/>
-                    </Style>
-                </Button.Resources>
-                <Viewbox Width="50" Height="50">
-                    <Grid Width="80" Height="80">
-                        <Ellipse  Fill="LightCyan"/>
-                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Section 1"/>
-                    </Grid>
-                </Viewbox>
-            </Button>
-
-            <Button Grid.Row="1" Name="Tab1" Background="White" 
-                    Margin="10" Width="60" Height="60" FontSize="15"
-                    BorderThickness="1">
-                <Button.Resources>
-                    <Style TargetType="Border">                   <!-- It needs a seperate view for every section with its table-->
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
                 <Viewbox Width="50" Height="50">
                     <Grid Width="80" Height="80">
                         <Rectangle  Fill="LightCyan"/>
-                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"  Text="Table 1"/>
+                        <TextBlock HorizontalAlignment="Center" 
+                                   VerticalAlignment="Center"  
+                                   Text="Table 1"/>
                     </Grid>
                 </Viewbox>
             </Button>
+            
+            
             <Button Grid.Row="1" Name="Tab2" Background="White" 
                     Margin="10" Width="60" Height="60" FontSize="15"
                     BorderBrush="Black" BorderThickness="1">
@@ -80,9 +82,13 @@
                 </Viewbox>
             </Button>
         </Grid>
+        
+        
         <Grid Grid.Column="1">
-            <Button Name="Sec1" Background="White" 
-                     Width="60" Height="60" FontSize="15"
+            <Button  Name="Sec1" 
+                     Background="White" 
+                     Width="60" Height="60" 
+                     FontSize="15"
                      BorderThickness="1">
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -92,14 +98,20 @@
                 <Viewbox Width="50" Height="50">
                     <Grid Width="80" Height="80">
                         <Ellipse  Fill="LightCyan"/>
-                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Section 2"/>
+                        <TextBlock HorizontalAlignment="Center" 
+                                   VerticalAlignment="Center" 
+                                   Text="Section 2"/>
                     </Grid>
                 </Viewbox>
             </Button>
         </Grid>
+        
+        
         <Grid Grid.Column="2">
-            <Button Name="Sec2" Background="White" 
-                     Width="60" Height="60" FontSize="15"
+            <Button  Name="Sec2" 
+                     Background="White" 
+                     Width="60" Height="60" 
+                     FontSize="15"
                      BorderThickness="1">
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -109,7 +121,9 @@
                 <Viewbox Width="50" Height="50">
                     <Grid Width="80" Height="80">
                         <Ellipse  Fill="LightCyan" Width="80" Height="80"/>
-                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Section 3"/>
+                        <TextBlock HorizontalAlignment="Center" 
+                                   VerticalAlignment="Center" 
+                                   Text="Section 3"/>
                     </Grid>
                 </Viewbox>
             </Button>

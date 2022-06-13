@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Windows.Documents;
-
-namespace Restaurant_Demonstration.Model
+﻿namespace Restaurant_Demonstration.Model
 {
     public class Section
     {

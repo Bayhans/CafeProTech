@@ -32,8 +32,6 @@ namespace Restaurant_Demonstration.ViewModel
                 }
             }
             public bool IsLayoutSelected => SelectedLayout is not null;
-          
-
             public DelegateCommand LayoutAddCommand { get; }
             public DelegateCommand LayoutDeleteCommand { get; }
             public override async Task LoadAsync()
