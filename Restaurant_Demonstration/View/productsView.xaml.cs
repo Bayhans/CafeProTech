@@ -3,11 +3,11 @@
 namespace Restaurant_Demonstration.Control
 {
     /// <summary>
-    /// Interaction logic for SectionsTablesControl.xaml
+    /// Interaction logic for productsView.xaml
     /// </summary>
-    public partial class SectionsTablesView : UserControl
+    public partial class productsView : UserControl
     {
-        public SectionsTablesView()
+        public productsView()
         {
             InitializeComponent();
         }

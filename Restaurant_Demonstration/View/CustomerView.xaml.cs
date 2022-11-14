@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Restaurant_Demonstration.Control
+namespace Restaurant_Demonstration.View
 {
     /// <summary>
-    /// Interaction logic for HeaderControl.xaml
+    /// Interaction logic for CustomerView.xaml
     /// </summary>
-    public partial class HeaderControl : UserControl
+    public partial class CustomerView : UserControl
     {
-        public HeaderControl()
+        public CustomerView()
         {
             InitializeComponent();
         }

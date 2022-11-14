@@ -1,11 +1,19 @@
-﻿<UserControl x:Class="Restaurant_Demonstration.View.SectionsTablesView"
+﻿<UserControl x:Class="Restaurant_Demonstration.Control.SectionsTablesView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Restaurant_Demonstration.View" 
+             xmlns:local="clr-namespace:Restaurant_Demonstration.Control" 
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="{StaticResource BackgroundBrush}">
+    <UserControl.Resources>
+        <DataTemplate x:Key="SectionsDataTemplate">
+            <StackPanel Orientation="Horizontal">
+                
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -17,8 +25,17 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            
-                <StackPanel Orientation="Vertical">
+            <Button Margin="10" Width="50" FontSize="15"  
+                        Command="{Binding SectionAddCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="C:\Work\Resturant demo\Restaurant_Demonstration\Images\add.png" Height="13" 
+                               Margin="0 0 5 0"/>
+                    <TextBlock Text="Add"/>
+                </StackPanel>
+            </Button>
+            <Button Content="Delete" Width="50" FontSize="15" Margin="0 10 10 10" 
+                        Command="{Binding SectionDeleteCommand}"/>
+            <StackPanel Orientation="Vertical">
                     <Button Grid.Row="0"
                         Name="Sec0"
                         Background="White"  
@@ -28,7 +45,7 @@
                         BorderThickness="1">
                         <Button.Resources>
                             <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="50"/>
+                                <Setter Property="CornerRadius" Value="10"/>
                             </Style>
                         </Button.Resources>
                         <Viewbox Width="50" Height="50">
@@ -36,12 +53,11 @@
                                 <Ellipse  Fill="LightCyan"/>
                                 <TextBlock HorizontalAlignment="Center" 
                                        VerticalAlignment="Center"
-                                       Text="{Binding }"/>
+                                       Text="{Binding SectionName}"/>
                             </Grid>
                         </Viewbox>
                     </Button>
                 </StackPanel>
-            
 
             <Button Grid.Row="1"
                     Name="Tab1"
@@ -65,7 +81,6 @@
                 </Viewbox>
             </Button>
             
-            
             <Button Grid.Row="1" Name="Tab2" Background="White" 
                     Margin="10" Width="60" Height="60" FontSize="15"
                     BorderBrush="Black" BorderThickness="1">
@@ -82,7 +97,6 @@
                 </Viewbox>
             </Button>
         </Grid>
-        
         
         <Grid Grid.Column="1">
             <Button  Name="Sec1" 
@@ -105,7 +119,6 @@
                 </Viewbox>
             </Button>
         </Grid>
-        
         
         <Grid Grid.Column="2">
             <Button  Name="Sec2" 

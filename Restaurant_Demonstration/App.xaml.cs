@@ -1,42 +1,32 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Restaurant_Demonstration.Data;
-using Restaurant_Demonstration.ViewModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
+using Restaurant_Demonstration.View;
 
 namespace Restaurant_Demonstration
 {
-
+    /// <summary>
+    /// Interaction logic for App.xaml
+    /// </summary>
     public partial class App : Application
     {
-        private readonly ServiceProvider _serviceProvider;
-
-        public App()
+        protected void ApplicationStart(object sender, StartupEventArgs e)
         {
-            ServiceCollection services = new();
-            ConfiguerServices(services);
-            _serviceProvider = services.BuildServiceProvider();
-        }
-
-        private void ConfiguerServices(ServiceCollection services)
-        {
-            services.AddTransient<MainWindow>();
-            services.AddTransient<MainViewModel>();
-            services.AddTransient<SectionsViewModel>();
-            services.AddTransient<ManagerViewModel>();
-            services.AddTransient<ProductsViewModel>();
-
-            services.AddTransient<ILayoutDataProvider.LayoutDataProvider>();
-            services.AddTransient<ICustomersDataProvider, CustomersDataProvider>();
-            services.AddTransient<IProductsDataProvider, ProductsDataProvider>();
-
-        }
-
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            base.OnStartup(e);
-
-            var mainWindow = _serviceProvider.GetService<MainWindow>();
-            mainWindow?.Show();
+            var loginView = new LoginView();
+            loginView.Show();
+            loginView.IsVisibleChanged += (s, ev) =>
+            {
+                if (loginView.IsVisible == false && loginView.IsLoaded)
+                {
+                    var mainView = new MainView();
+                    mainView.Show();
+                    loginView.Close();
+                }
+            };
         }
     }
 }

@@ -2,42 +2,42 @@
 
 namespace Restaurant_Demonstration.ViewModel
 {
-    public class SectionsItemsViewModel: ValidationViewModelBase
-    {
-        private readonly Section _layoutModel;
+    //public class SectionsItemsViewModel: ValidationViewModelBase
+    //{
+    //    private readonly Section _sectionModel;
 
-        public SectionsItemsViewModel(Section layoutmodel)
-        {
-            _layoutModel = layoutmodel;
-        }
+    //    public SectionsItemsViewModel(Section model)
+    //    {
+    //        _sectionModel = model;
+    //    }
 
-        public int Id => _layoutModel.SectionId;
+    //    public int SectionId => _sectionModel.SectionId;
 
-        public string? LayoutName
-        {
-            get => _layoutModel.SectionName;
-            set
-            {
-                _layoutModel.SectionName = value;
-                RaisePropertyChanged();
-                if (string.IsNullOrEmpty(_layoutModel.SectionName))
-                {
-                    AddError("layout name is required");
-                }
-                else
-                {
-                    ClearErrors();
-                }
-            }
-        }
-        public bool Avaliblity
-        {
-            get => _layoutModel.Avaliblity;
-            set
-            {
-                _layoutModel.Avaliblity = value;
-                RaisePropertyChanged();
-            }
-        }
-    }
+    //    public string? SectionName
+    //    {
+    //        get => _sectionModel.SectionName;
+    //        set
+    //        {
+    //            _sectionModel.SectionName = value;
+    //            RaisePropertyChanged();
+    //            if (string.IsNullOrEmpty(_sectionModel.SectionName))
+    //            {
+    //                AddError("Section name is required");
+    //            }
+    //            else
+    //            {
+    //                ClearErrors();
+    //            }
+    //        }
+    //    }
+    //    public bool SectionAvaliblity
+    //    {
+    //        get => _sectionModel.Avaliblity;
+    //        set
+    //        {
+    //            _sectionModel.Avaliblity = value;
+    //            RaisePropertyChanged();
+    //        }
+    //    }
+    //}
 }

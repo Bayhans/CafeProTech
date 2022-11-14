@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace Restaurant_Demonstration.View
+namespace Restaurant_Demonstration.Control
 {
     /// <summary>
     /// Interaction logic for ManagerView.xaml

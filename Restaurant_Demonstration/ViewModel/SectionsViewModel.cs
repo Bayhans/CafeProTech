@@ -7,62 +7,59 @@ using Restaurant_Demonstration.Model;
 
 namespace Restaurant_Demonstration.ViewModel
 {
-    public class SectionsViewModel : ViewModelBase
-    {
-        
-            private readonly ILayoutDataProvider _LayoutDataProvider;
-            private SectionsItemsViewModel? _selectedLayout;
-
-            public SectionsViewModel(ILayoutDataProvider layoutDataProvider)
-            {
-                _LayoutDataProvider = layoutDataProvider;
-                LayoutAddCommand = new DelegateCommand(AddLayout);
-                LayoutDeleteCommand = new DelegateCommand(DeleteLayout, CanDeleteLayout);
-            }
-        public ObservableCollection<SectionsItemsViewModel> Layouts { get; } = new();
-        public SectionsItemsViewModel? SelectedLayout
-            {
-                get => _selectedLayout;
-                set
-                {
-                    _selectedLayout = value;
-                    RaisePropertyChanged();
-                    RaisePropertyChanged(nameof(IsLayoutSelected));
-                    LayoutDeleteCommand.RaiseCanExecuteChanged();
-                }
-            }
-            public bool IsLayoutSelected => SelectedLayout is not null;
-            public DelegateCommand LayoutAddCommand { get; }
-            public DelegateCommand LayoutDeleteCommand { get; }
-            public override async Task LoadAsync()
-            {
-                if (Layouts.Any())
-                {
-                    return;
-                }
-                var layouts = await _LayoutDataProvider.GetAllAsync();
-                if (layouts is not null)
-                {
-                    foreach (var layout in layouts)
-                    {
-                        Layouts.Add(new SectionsItemsViewModel(layout));
-                    }
-                }
-            }
-            private void AddLayout(object? parameter)
-            {
-                var layout = new Section { SectionName = "New layout" };
-                var layoutviewModel = new SectionsItemsViewModel(layout);
-                Layouts.Add(layoutviewModel);
-                SelectedLayout = layoutviewModel;
-            }
-            private void DeleteLayout(object? parameter)
-            {
-                if (SelectedLayout is null) return;
-                Layouts.Remove(SelectedLayout);
-                SelectedLayout = null;
-            }
-            private bool CanDeleteLayout(object? parameter) => SelectedLayout is not null;
-        
-    }
+    //public class SectionsViewModel : ViewModelBase
+    //{
+    //    private readonly ISectionsDataProvider _SectionsDataProvider;
+    //    private SectionsItemsViewModel? _selectedSection;
+    //    public SectionsViewModel(ISectionsDataProvider sectionsDataProvider)
+    //    {
+    //        _SectionsDataProvider = sectionsDataProvider;
+    //        SectionAddCommand = new DelegateCommand(AddSection);
+    //        SectionDeleteCommand = new DelegateCommand(DeleteSection, CanDeleteSection);
+    //    }
+    //    public ObservableCollection<SectionsItemsViewModel> Section { get; } = new();
+    //    public SectionsItemsViewModel? SelectedSection
+    //        {
+    //        get => _selectedSection;
+    //        set
+    //        {
+    //            _selectedSection = value;
+    //            RaisePropertyChanged();
+    //            RaisePropertyChanged(nameof(IsSectionSelected));
+    //            SectionDeleteCommand.RaiseCanExecuteChanged();
+    //        }
+    //        }
+    //    public bool IsSectionSelected => SelectedSection is not null;
+    //    public DelegateCommand SectionAddCommand { get; }
+    //    public DelegateCommand SectionDeleteCommand { get; }
+    //    public override async Task LoadAsync()
+    //    {
+    //        if (Section.Any())
+    //        {
+    //            return;
+    //        }
+    //        var Sections = await _SectionsDataProvider.GetAllAsync();
+    //        if (Sections is not null)
+    //        {
+    //            foreach (var Section in Sections)
+    //            {
+    //                this.Section.Add(new SectionsItemsViewModel(Section));
+    //            }
+    //        }
+    //    }
+    //    private void AddSection(object? parameter)
+    //    {
+    //        var Section = new Section { SectionName = "New Section" };
+    //        var SectionViewModel = new SectionsItemsViewModel(Section);  //note shure if its section or sections
+    //        this.Section.Add(SectionViewModel);
+    //        SelectedSection = SectionViewModel;
+    //    }
+    //    private void DeleteSection(object? parameter)
+    //    {
+    //        if (SelectedSection is null) return;
+    //        Section.Remove(SelectedSection);
+    //        SelectedSection = null;
+    //    }
+    //    private bool CanDeleteSection(object? parameter) => SelectedSection is not null;
+    //}
 }
