@@ -12,9 +12,9 @@ create table [User]
 	Email  nvarchar (100) unique not null
 )
 go
-insert into [User] values (NEWID(), 'admin', 'Bayhan', 'admin', 'Bay area', 'business@Bayan.com')
-insert into [User] values (NEWID(), 'Bari', 'Pop','the Shadow','premium', 'Bari.P@gmail.com')
-insert into [User] values (NEWID(), 'Ibo', 'foo','easy peasy','Nop', 'Ibo.foo@gmail.com')
+insert into [User] values (NEWID(),'admin','admin','Bayhan','Bay area','business@Bayan.com')
+insert into [User] values (NEWID(),'Bari','Pop','the Shadow','premium','Bari.P@gmail.com')
+insert into [User] values (NEWID(),'Ibo','foo','easy peasy','Nop','Ibo.foo@gmail.com')
 go
 
 select *from [User]

@@ -8,5 +8,6 @@ namespace Restaurant_Demonstration.ViewModel
 {
     public class HomeViewModel : ViewModelBase
     {
+
     }
 }

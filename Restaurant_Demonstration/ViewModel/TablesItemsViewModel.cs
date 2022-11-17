@@ -4,7 +4,7 @@ namespace Restaurant_Demonstration.ViewModel
 {
     //public class TablesItemsViewModel : ValidationViewModelBase
     //{
-       
+
     //    private readonly Table _tableModel;
 
     //    public TablesItemsViewModel(Table model)

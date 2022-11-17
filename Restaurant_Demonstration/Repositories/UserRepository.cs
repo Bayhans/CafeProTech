@@ -48,7 +48,7 @@ namespace Restaurant_Demonstration.Repositories
         }
         public UserModel GetByUsername(string username)
         {
-            UserModel user = null;
+            UserModel? user = null;
             using (var connection = GetConnection())
             using (var command = new SqlCommand())
             {

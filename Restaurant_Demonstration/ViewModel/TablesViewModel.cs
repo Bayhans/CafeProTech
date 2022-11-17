@@ -60,7 +60,7 @@ namespace Restaurant_Demonstration.ViewModel
     //    {
     //        if (SelectedTable is null) return;
     //        Table.Remove(SelectedTable);
-    //        SelectedTable  = null;
+    //        SelectedTable = null;
     //    }
     //    private bool CanDeleteTable(object? parameter) => SelectedTable is not null;
 

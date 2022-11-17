@@ -4,18 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:converter="clr-namespace:Restaurant_Demonstration.Converter"
+             xmlns:local="clr-namespace:Restaurant_Demonstration.View" 
+             xmlns:local1="clr-namespace:Restaurant_Demonstration.Control"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" 
              Background="{StaticResource BackgroundBrush}">
 
-    <!--<UserControl.Resources>
+    <UserControl.Resources>
         <converter:NavigationSideToGridColumnConverter 
             x:Key="NavigationSideToGridColumnConv" />
             <DataTemplate x:Key="CustomerDataTemplate">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="{Binding FirstName, ValidatesOnNotifyDataErrors=False}"
                             FontWeight="Bold" d:DataContext="{d:DesignData CustomerItemViewModel}"/>
-                    <TextBlock Text="{Binding LastName}" Margin="5 0 0 0" 
+                    <TextBlock Text="{Binding LastName}" Margin="10 0 0 0" 
                             d:DataContext="{d:DesignData Customer}" />
                 </StackPanel>
             </DataTemplate> 
@@ -26,28 +28,28 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        --><!-- Customer list --><!--
+         <!--Customer list--> 
         <Grid Grid.Column="{Binding NavigationSide, 
                             Converter={StaticResource NavigationSideToGridColumnConv}}"
-                            Background="{StaticResource BackgroundBrush}" Width="200">
+                            Background="{StaticResource OptionMark.Static.Background}" Width="200">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal">
-                <Button Margin="10" Width="50" FontSize="15"  
+                <Button Margin="10" Width="50" FontSize="15"  Background="{StaticResource color3}"
                 Command="{Binding CustomerAddCommand}">
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="\Images\add.png" Height="13" 
+                        <Image Source="C:\Work\Resturant demo\Restaurant_Demonstration\Images\add.png" Height="13" 
                         Margin="0 0 5 0"/>
                         <TextBlock Text="Add"/>
                     </StackPanel>
                 </Button>
-                <Button Content="Delete" Width="50" FontSize="15" Margin="0 10 10 10" 
+                <Button Content="Delete" Width="50" FontSize="15" Margin="0 10 10 10" Background="{StaticResource color3}"
                 Command="{Binding CustomerDeleteCommand}"/>
-                <Button Margin="0 10 10 10" Width="50" Command="{Binding MoveNavigationCommand}" >
-                    <Image Source="\Images\move.png" Height="15"/>
+                <Button Margin="0 10 10 10" Width="50" Command="{Binding MoveNavigationCommand}" Background="{StaticResource color5}">
+                    <Image Source="C:\Work\Resturant demo\Restaurant_Demonstration\Images\move.png" Height="15"/>
                 </Button>
             </StackPanel>
             <ListView ItemsSource="{Binding Customers}"
@@ -55,35 +57,35 @@
                 ItemTemplate="{StaticResource CustomerDataTemplate}"
                 Grid.Row="1"
                 Margin="10 0 10 10"  Height="300"
-                Background="{StaticResource BackgroundBrush}"/>
+                Background="{StaticResource OptionMark.Pressed.Background}"/>
         </Grid>
 
-        --><!-- Customer details --><!--
+         <!--Customer details--> 
         <StackPanel Grid.Column="1" Margin="10"
             Visibility="{Binding IsCustomerSelected,
                         Converter={StaticResource BooleanToVisibilityConv}}">
 
-            <Label>Firstname:</Label>
+            <Label Foreground="White">Firstname:</Label>
             <TextBox Text="{Binding SelectedCustomer.FirstName,
                         Mode=TwoWay,
                         UpdateSourceTrigger=PropertyChanged}"/>
-            <Label>Lastname:</Label>
+            <Label Foreground="White">Lastname:</Label>
             <TextBox Text="{Binding SelectedCustomer.LastName,
                         Mode=TwoWay,
                         UpdateSourceTrigger=PropertyChanged}"/>
-            <CheckBox IsChecked="{Binding SelectedCustomer.Ordered,
+            <CheckBox Foreground="White" IsChecked="{Binding SelectedCustomer.Ordered,
                         Mode=TwoWay,
                         UpdateSourceTrigger=PropertyChanged}"
                     Margin="0 20 0 0">
                 Ordered
             </CheckBox>
         </StackPanel>
-        --><!--Sections details resource -->
-        <!--<Grid Grid.Column="1" Visibility="{Binding IsCustomerSelected,
+        <!--Sections details resource--> 
+        <Grid Background="{StaticResource color2}" Grid.Column="1" Visibility="{Binding IsCustomerSelected,
                             Converter={StaticResource SectionsViewConv}, 
                             ConverterParameter=Inverted}">
-                <local:SectionsTablesView/>
+                <local1:SectionsTablesView/>
 
-            </Grid>--><!--
-    </Grid>-->
+            </Grid>
+    </Grid>
 </UserControl>
